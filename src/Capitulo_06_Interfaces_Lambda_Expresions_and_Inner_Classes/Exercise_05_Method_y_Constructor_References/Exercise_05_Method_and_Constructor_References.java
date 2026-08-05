@@ -1,4 +1,4 @@
-package Capitulo_06_Interfaces_Lambda_Expresions_and_Inner_Classes.Method_y_Constructor_References;
+package Capitulo_06_Interfaces_Lambda_Expresions_and_Inner_Classes.Exercise_05_Method_y_Constructor_References;
 
 class Mensaje {
     String texto;

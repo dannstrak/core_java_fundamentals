@@ -1,0 +1,4 @@
+package Capitulo_06_Interfaces_Lambda_Expresions_and_Inner_Classes.Exercise_11_Local_Inner_Classes;
+
+public class PreProcesadorDatos {
+}

@@ -26,5 +26,18 @@ public class HistorialNavegador {
             var elemento = iterador.previous();
             System.out.print(elemento + "<-");
         }
+        // Reiniciamos el cursor
+        ListIterator<String> iteradorModificado = historial.listIterator();
+        // Damos dos pasos exactos hacia adelante
+        iteradorModificado.next();
+        iteradorModificado.next();
+        // Insertamos en esa posición usando el iterador
+        iteradorModificado.add("YouTube");
+        while(iteradorModificado.hasNext()){
+            var valor = iteradorModificado.next();
+            if(valor.equals("StackOverflow")){
+                iteradorModificado.remove();
+            }
+        }
     }
 }

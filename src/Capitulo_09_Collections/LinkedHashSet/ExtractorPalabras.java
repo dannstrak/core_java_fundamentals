@@ -17,7 +17,5 @@ public class ExtractorPalabras {
         for (String palabra : vocabulario){
             System.out.println(palabra);
         }
-
-
     }
 }

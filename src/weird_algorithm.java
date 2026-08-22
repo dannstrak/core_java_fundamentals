@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class weird_algorithm {
     static ArrayList<Long> arregloFinal = new ArrayList<>();
@@ -16,9 +17,14 @@ public class weird_algorithm {
     }
 
     static void main(String[] args) {
-        weirdAlgorithm(3);
+        Scanner sc = new Scanner(System.in);
+        if (sc.hasNextLong()){
+            long n = sc.nextLong();
+            weirdAlgorithm(n);
+        }
         for(long e : arregloFinal){
             System.out.print(e + " ");
         }
+        sc.close();
     }
 }

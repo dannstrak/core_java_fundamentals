@@ -1,18 +1,10 @@
-package Cracking_the_Coding;
-
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Scanner;
 
 public class MissingNumber {
 
     public static int valorTotal (int maxValue){
-        if(maxValue <= 1){
-            return 1;
-        }else{
-            return maxValue + valorTotal(maxValue-1);
-        }
+        return (maxValue * (maxValue +1))/2;
     }
     public static int missing(int maxValue, HashSet<Integer> numerosDados){
         int valueMaxSet = maxValue - 1;

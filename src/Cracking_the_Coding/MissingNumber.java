@@ -6,41 +6,32 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 public class MissingNumber {
-    static ArrayList<Integer> arrayFinal = new ArrayList<>();
-    static HashSet<Integer> numerosActivos = new HashSet<>();
-    public static Integer numeroFaltante (int n){
-        if (n <= 2){
-            numerosActivos.add(n-1);
+
+    public static int valorTotal (int maxValue){
+        if(maxValue <= 1){
             return 1;
         }else{
-            int value = n - 1;
-            numerosActivos.add(value);
-            return numeroFaltante(value);
+            return maxValue + valorTotal(maxValue-1);
         }
     }
-    public static Integer finalArreglo (HashSet<Integer> finalSet){
-        Iterator<Integer> iter = numerosActivos.iterator();
-        if(iter.hasNext()){
-            int value = iter.next();
-            arrayFinal.add(value, value);
+    public static int missing(int maxValue, HashSet<Integer> numerosDados){
+        int valueMaxSet = maxValue - 1;
+        HashSet<Integer> numeros = new HashSet<>(numerosDados);
+        int contador = 0;
+        for (Integer e : numeros){
+            contador += e;
         }
-        Iterator<Integer> iter2 = arrayFinal.listIterator();
-        int valorFinal = 0;
-        if(iter2.hasNext()){
-            valorFinal = iter.next();
-        }
-        return valorFinal;
+        return valorTotal(maxValue) - contador;
     }
-
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int valor = 0;
-        if (sc.hasNextLong()){
-            valor = sc.nextInt();
+        int valor = sc.nextInt();
+        HashSet<Integer> valores = new HashSet<>(valor -1);
+        for (int i = 0; i < valor - 1; i++) {
+            valores.add(sc.nextInt());
         }
-        if(sc.hasNextLong()){
-
-        }
+        int valorFinal = missing(valor, valores);
+        System.out.println(valorFinal);
     }
 }

@@ -1,3 +1,5 @@
+package Cracking_the_Coding;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 

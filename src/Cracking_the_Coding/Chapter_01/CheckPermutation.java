@@ -6,6 +6,8 @@ import java.util.Scanner;
 
 public class CheckPermutation {
     public static boolean checkPermutation (String cadenaOriginal, String posiblePermutacion){
+        cadenaOriginal.trim();
+        posiblePermutacion.trim();
         int[] arregloFinal = new int[128];
         if (cadenaOriginal.length() != posiblePermutacion.length())
             return false;
@@ -14,11 +16,10 @@ public class CheckPermutation {
             arregloFinal[value] ++;
         }
         for (int i = 0; i < posiblePermutacion.length(); i++){
-            int value = cadenaOriginal.charAt(i);
+            int value = posiblePermutacion.charAt(i);
+            arregloFinal[value] --;
             if (arregloFinal[value] < 0) {
                 return false;
-            }else{
-                arregloFinal[value] --;
             }
         }
         return  true;

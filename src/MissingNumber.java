@@ -1,10 +1,13 @@
-import java.util.HashSet;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class MissingNumber {
-    public static int misingNumber (int limiteMaximo, int[] enteros){
-        int valueFinal = (limiteMaximo*(limiteMaximo+1))/2;
-        int contador = 0;
+    public static long misingNumber (int limiteMaximo, int[] enteros){
+        long valueFinal = (long) limiteMaximo * (limiteMaximo + 1) / 2;
+        long  contador = 0;
         if (limiteMaximo == 1){
             return 1;
         }else{
@@ -15,16 +18,17 @@ public class MissingNumber {
         return valueFinal-contador;
     }
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int limite = sc.nextInt();
-        int arreglo[] = new int[limite-1];
-        if (sc.hasNextInt()){
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int limite = Integer.parseInt(br.readLine());
+        int  arreglo[] = new int[limite-1];
+        String lineaNumeros = br.readLine();
+        if (lineaNumeros != null){
+            StringTokenizer st = new StringTokenizer(lineaNumeros);
             for (int i = 0; i<arreglo.length; i++){
-                arreglo[i] = sc.nextInt();
             }
         }
-        int valorFinal = misingNumber(limite, arreglo);
+        long valorFinal = misingNumber(limite, arreglo);
         System.out.println(valorFinal);
     }
 }

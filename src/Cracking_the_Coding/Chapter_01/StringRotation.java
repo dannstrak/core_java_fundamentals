@@ -7,15 +7,17 @@ public class StringRotation {
     public static boolean StringRotation (String cadenaNormal, String posibleRotation){
         if (cadenaNormal == null || posibleRotation == null){
             return false;
+        }if (cadenaNormal.length() != posibleRotation.length()){
+            return false;
         }else{
             String nuevaRotacion = posibleRotation + posibleRotation;
-            if (!nuevaRotacion.contains(cadenaNormal))
+            if (!isSubstring(nuevaRotacion, cadenaNormal))
                 return false;
         }
         return true;
     }
 
-    static void main() {
+    public static void main() {
         boolean resultado = StringRotation("waterbottle", "erbottlewat");
         System.out.println(resultado);
     }

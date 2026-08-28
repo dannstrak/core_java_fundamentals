@@ -20,4 +20,21 @@ public class LinkedListCTCI {
         newLink.next = this;
         return  newLink;
     }
+
+
+    LinkedListCTCI deleteNode (LinkedListCTCI head, int data){
+        LinkedListCTCI current = head;
+        if (current.data == data){
+            return head.next;
+        }
+        while(current.next != null){
+            if (current.next.data == data){
+                current.next = current.next.next;
+                return head;
+            }
+            current = current.next;
+        }
+        return head;
+    }
+
 }

@@ -32,7 +32,7 @@ public class LinkedListA {
     // DisplayChainofLinks.
     public void displayLinkedList (){
         Link current = first;
-        while (!isEmpty()){
+        while (current != null){
             current.displayLink();
             current = current.next;
         }

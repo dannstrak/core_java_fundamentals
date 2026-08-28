@@ -13,7 +13,7 @@ class Link{
 public class LinkedListA {
     private Link first;
 
-    public LinkedListA(Link first){
+    public LinkedListA(){
         first = null;
     }
     public boolean isEmpty (){

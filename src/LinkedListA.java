@@ -23,12 +23,11 @@ public class LinkedListA {
     public void insertFirst (int identificador, int dato){
         Link newLink = new Link(dato, identificador);
         newLink.next = first;
-        first.next = newLink;
+        first = newLink;
     }
     // DeleteFirst.
     public void deleteFirst (int identificador){
-        Link removeLink = first;
-        first.next = removeLink.next;
+        first = first.next;
     }
     // DisplayChainofLinks.
     public void displayLinkedList (){

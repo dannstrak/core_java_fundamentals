@@ -56,4 +56,22 @@ public class LinkedListCTCI {
         return head;
     }
 
+
+    LinkedListCTCI findTheKThNode (LinkedListCTCI head, int kth){
+        if (head == null){
+            return null;
+        }
+        LinkedListCTCI current = head;
+        LinkedListCTCI currentkth = head;
+        for (int i = 0; i<kth; i++){
+            if (currentkth == null)
+                return null;
+            currentkth = currentkth.next;
+        }
+        while (currentkth != null){
+            current = current.next;
+            currentkth = currentkth.next;
+        }
+        return current;
+    }
 }

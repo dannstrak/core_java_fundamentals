@@ -103,4 +103,14 @@ public class LinkedListCTCI {
         }
         return true;
     }
+
+    boolean deleteMiddleNode2 (LinkedListCTCI nodeABorrar){
+        if (nodeABorrar == null || nodeABorrar.next == null){
+            return false;
+        }
+        LinkedListCTCI current = nodeABorrar;
+        current.data = current.next.data;
+        current.next = current.next.next;
+        return true;
+    }
 }

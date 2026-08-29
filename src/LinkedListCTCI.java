@@ -74,4 +74,33 @@ public class LinkedListCTCI {
         }
         return current;
     }
+
+    LinkedListCTCI deleteMiddleNode(LinkedListCTCI head){
+        if (head == null)
+            return null;
+        LinkedListCTCI current = head;
+        LinkedListCTCI currentTh = head;
+        int contador = 0;
+        int contadorFinal = contador /2;
+        while (currentTh != null){
+            currentTh = currentTh.next;
+            contador += 1;
+        }
+        for (int j = 0; j<contadorFinal; j++ ){
+            current = current.next;
+        }
+        return current;
+    }
+
+    boolean deleteNode(LinkedListCTCI nodoABorrar){
+        LinkedListCTCI current = this;
+        while (current.next != null){
+            if (current.next == nodoABorrar){
+                current.next = current.next.next;
+                return true;
+            }
+            current = current.next;
+        }
+        return true;
+    }
 }

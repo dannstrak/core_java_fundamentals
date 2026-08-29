@@ -37,4 +37,23 @@ public class LinkedListCTCI {
         return head;
     }
 
+
+    LinkedListCTCI deleteRepetedNodes (LinkedListCTCI head){
+        if (head == null)
+            return null;
+        LinkedListCTCI current = head;
+        while (current.next != null){
+            LinkedListCTCI aboveCurrent = current;
+            while (aboveCurrent.next != null){
+                if (current.data == aboveCurrent.next.data){
+                    aboveCurrent.next = aboveCurrent.next.next;
+                }else{
+                    aboveCurrent = aboveCurrent.next;
+                }
+            }
+            current = current.next;
+        }
+        return head;
+    }
+
 }

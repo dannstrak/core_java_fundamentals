@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class LinkedListCTCI {
     int data;
     LinkedListCTCI next  = null;
@@ -113,4 +115,77 @@ public class LinkedListCTCI {
         current.next = current.next.next;
         return true;
     }
+
+    LinkedListCTCI partitionWith2List (LinkedListCTCI head , int valuePartition){
+        LinkedListCTCI lowersHead = null;
+        LinkedListCTCI lowersTail = null;
+        LinkedListCTCI uppersHead = null;
+        LinkedListCTCI uppersTail = null;
+        if (head == null){
+            return null;
+        }
+        while (head != null){
+            LinkedListCTCI next = head.next;
+            head.next = null;
+            if (head.data < valuePartition){
+                if (lowersHead == null){
+                    lowersHead = head;
+                    lowersTail = lowersHead;
+                }else{
+                    lowersTail.next = head;
+                    lowersTail = head;
+                }
+            }else{
+                if (uppersHead == null){
+                    uppersHead = head;
+                    uppersTail = uppersHead;
+                }else{
+                    uppersTail.next = head;
+                    uppersTail = head;
+                }
+            }
+            head = next;
+        }
+        if (lowersHead == null){
+            return uppersHead;
+        }
+        lowersTail.next = uppersHead;
+        return lowersHead;
+    }
+
+
+   LinkedListCTCI sumLists (LinkedListCTCI head1, LinkedListCTCI head2){
+        LinkedListCTCI newList = null ;
+        LinkedListCTCI head01next = head1.next;
+        LinkedListCTCI head02next = head2.next;
+        while (head1 != null || head2!= null){
+            int acarreo = 0;
+            int value = head1.data + head2.data;
+            if (value > 9){
+                int suma = value % 10;
+                acarreo = value / 10;
+                if (newList == null){
+                    newList = new LinkedListCTCI(suma);
+                }else{
+                    LinkedListCTCI current = new LinkedListCTCI(suma);
+                    newList.next = current;
+                    newList = current;
+                }
+            }else{
+                int nuevovalue = value + acarreo;
+                acarreo = nuevovalue / 10;
+                if (newList == null){
+                    newList = new LinkedListCTCI(nuevovalue);
+                }else{
+                    LinkedListCTCI current = new LinkedListCTCI(nuevovalue);
+                    newList.next = current;
+                    newList = current;
+                }
+            }
+            head1 = head01next;
+            head2 = head02next;
+        }
+        return newList;
+   }
+
 }

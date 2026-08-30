@@ -10,10 +10,10 @@ class Link{
         System.out.print("{" + identificador + ", " + data + "} ");
     }
 }
-public class LinkedListA {
+class LinkedListB {
     private Link first;
 
-    public LinkedListA(){
+    public LinkedListB(){
         first = null;
     }
     public boolean isEmpty (){
@@ -37,5 +37,15 @@ public class LinkedListA {
             current = current.next;
         }
     }
-
 }
+
+public class LinkedListA{
+    static void main(String[] args) {
+        LinkedListB linkedList = new LinkedListB();
+        linkedList.insertFirst(1, 10);
+        linkedList.insertFirst(2, 14);
+        linkedList.insertFirst(3, 20);
+        linkedList.displayLinkedList();
+    }
+}
+

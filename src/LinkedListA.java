@@ -13,29 +13,47 @@ class Link{
 class LinkedListB {
     private Link first;
 
-    public LinkedListB(){
+    public LinkedListB() {
         first = null;
     }
-    public boolean isEmpty (){
+
+    public boolean isEmpty() {
         return first == null;
     }
+
     // InsertFirst.
-    public void insertFirst (int identificador, int dato){
+    public void insertFirst(int identificador, int dato) {
         Link newLink = new Link(dato, identificador);
         newLink.next = first;
         first = newLink;
     }
+
     // DeleteFirst.
-    public void deleteFirst (int identificador){
+    public void deleteFirst(int identificador) {
         first = first.next;
     }
+
     // DisplayChainofLinks.
-    public void displayLinkedList (){
+    public void displayLinkedList() {
         Link current = first;
-        while (current != null){
+        while (current != null) {
             current.displayLink();
             current = current.next;
         }
+    }
+
+
+    // Find and Deleting Specific links
+    public Link findLink(int identificador) {
+        Link current = first;
+        while (current.identificador != identificador) {
+            if (current.next == null) {
+                return null;
+            }else{
+                current = current.next;
+            }
+        }
+        return current;
     }
 }
 

@@ -155,37 +155,29 @@ public class LinkedListCTCI {
 
 
    LinkedListCTCI sumLists (LinkedListCTCI head1, LinkedListCTCI head2){
-        LinkedListCTCI newList = null ;
-        LinkedListCTCI head01next = head1.next;
-        LinkedListCTCI head02next = head2.next;
-        while (head1 != null || head2!= null){
-            int acarreo = 0;
-            int value = head1.data + head2.data;
-            if (value > 9){
-                int suma = value % 10;
-                acarreo = value / 10;
-                if (newList == null){
-                    newList = new LinkedListCTCI(suma);
-                }else{
-                    LinkedListCTCI current = new LinkedListCTCI(suma);
-                    newList.next = current;
-                    newList = current;
-                }
-            }else{
-                int nuevovalue = value + acarreo;
-                acarreo = nuevovalue / 10;
-                if (newList == null){
-                    newList = new LinkedListCTCI(nuevovalue);
-                }else{
-                    LinkedListCTCI current = new LinkedListCTCI(nuevovalue);
-                    newList.next = current;
-                    newList = current;
-                }
-            }
-            head1 = head01next;
-            head2 = head02next;
-        }
-        return newList;
-   }
+        LinkedListCTCI resultHead = null;
+        LinkedListCTCI resultTail = null;
 
+        int acarreo = 0;
+        while(head1 != null || head2 != null || acarreo > 0){
+            int valor1 = (head1 != null) ? head1.data : 0;
+            int valor2 = (head2 != null) ? head2.data : 0;
+
+            int suma = valor1 + valor2 + acarreo;
+            acarreo = suma / 10;
+            int digitoFinal = suma % 10;
+
+            LinkedListCTCI nuevoNodo = new LinkedListCTCI(digitoFinal);
+            if (resultHead == null){
+                resultHead = nuevoNodo;
+                resultTail = resultTail;
+            }else{
+                resultTail.next = nuevoNodo;
+                resultTail = nuevoNodo;
+            }
+            if (head1 != null) head1 = head1.next;
+            if (head2 != null) head2 = head2.next;
+        }
+        return resultHead;
+   }
 }

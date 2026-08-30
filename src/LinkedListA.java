@@ -55,6 +55,43 @@ class LinkedListB {
         }
         return current;
     }
+
+    // Delete an Specificic link
+    public Link deleteSpecificLink (int identificador){
+        Link current = first;
+        Link previous = first;
+        while(current.identificador != identificador){
+            if (current.next == null){
+                return  null;
+            }else{
+                previous = current;
+                current = current.next;
+            }
+        }
+        if (current == first){
+            first = current.next;
+        }else{
+            previous.next = current.next;
+        }
+        return current;
+    }
+
+    public boolean deleteSpecificLink2 (int identificador){
+        Link current = first;
+        while(current.next.identificador != identificador){
+            if (current.next == null){
+                return  false;
+            }else{
+                current = current.next;
+            }
+        }
+        if (current == first){
+            first = current.next;
+        }else{
+            current.next = current.next.next;
+        }
+        return true;
+    }
 }
 
 public class LinkedListA{

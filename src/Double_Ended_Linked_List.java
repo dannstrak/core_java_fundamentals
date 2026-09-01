@@ -39,6 +39,16 @@ class Double_Ended{
         }
         Last = newNode;
     }
+    public boolean deleteFirst(){
+        if (isEmpty()){
+            return false;
+        }
+        if(First.next == null){
+            return false;
+        }
+        First = First.next;
+        return true;
+    }
 }
 
 public class Double_Ended_Linked_List {

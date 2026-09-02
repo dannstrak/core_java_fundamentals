@@ -11,7 +11,7 @@ class node{
     }
 }
 class LinkedL {
-    node First;
+    private node First;
     public LinkedL(){
         First = null;
     }
@@ -28,9 +28,40 @@ class LinkedL {
         }
     }
     public void deleteFirst (){
+        if (!isEmpty()){
+            First = First.next;
+        }
+    }
 
+    public void displayList(){
+        node current = First;
+        while (current != null){
+            current.displayLink();
+            current = current.next;
+        }
+    }
+}
+
+class StackImp {
+    private LinkedL Stack;
+    public StackImp(){
+        Stack = new LinkedL();
+    }
+    public void push(int identificador, int data){
+        Stack.insertFirst(identificador,data);
+    }
+    public void pop (){
+        Stack.deleteFirst();
+    }
+    public void Peek(){
+        Stack.displayList();
+    }
+    public boolean isEmpty(){
+       return Stack.isEmpty();
     }
 }
 
 public class StackImplementByLinkedList {
+
+
 }

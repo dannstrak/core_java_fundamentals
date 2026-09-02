@@ -18,8 +18,8 @@ class LinkedL {
     public boolean isEmpty(){
         return First == null;
     }
-    public void insertFirst(int identificador, int data){
-        node newNode = new node(identificador, data);
+    public void insertFirst(int data, int identificador){
+        node newNode = new node(data, identificador);
         if (isEmpty()){
             First = newNode;
         }else{
@@ -43,25 +43,32 @@ class LinkedL {
 }
 
 class StackImp {
-    private LinkedL Stack;
+    private LinkedL Stack1;
     public StackImp(){
-        Stack = new LinkedL();
+        Stack1 = new LinkedL();
     }
-    public void push(int identificador, int data){
-        Stack.insertFirst(identificador,data);
+    public void push(int data, int identificador){
+        Stack1.insertFirst(data, identificador);
     }
     public void pop (){
-        Stack.deleteFirst();
+        Stack1.deleteFirst();
     }
     public void Peek(){
-        Stack.displayList();
+        Stack1.displayList();
     }
     public boolean isEmpty(){
-       return Stack.isEmpty();
+       return Stack1.isEmpty();
     }
 }
-
 public class StackImplementByLinkedList {
-
-
+    public static void main(String[] args) {
+        StackImp Stack = new StackImp();
+        Stack.push(1, 10);
+        Stack.push(2, 10);
+        Stack.push(3, 12);
+        Stack.Peek();
+        Stack.pop();
+        Stack.pop();
+        Stack.Peek();
+    }
 }

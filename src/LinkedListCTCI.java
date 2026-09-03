@@ -180,46 +180,4 @@ public class LinkedListCTCI {
         }
         return resultHead;
    }
-
-   static boolean palindromeCheck (LinkedListCTCI head){
-        LinkedListCTCI nodeMedio = head;
-        int contador = 0;
-        while (head != null){
-            head = head.next.next;
-            nodeMedio = nodeMedio.next;
-            contador ++;
-        }
-        if (contador % 2 == 0){
-            contador = (contador * 2) +1;
-        }else{
-            contador = contador * 2;
-        }
-        int arreglo[] = new int[contador];
-        while (head != null){
-            arreglo[head.data]++;
-            head = head.next;
-        }
-        for (int i = 0; i<arreglo.length; i++){
-            if (contador % 2== 0) {
-                if (arreglo[i] % 2!=0) {
-                    return false;
-                }
-            }else{
-                if (arreglo[i] == nodeMedio.data) {
-                    if (arreglo[i] %2 == 0) {
-                        return false;
-                    }
-                }
-            }
-        }
-        return true;
-   }
-
-    static void main(String[] args) {
-        LinkedListCTCI head = new LinkedListCTCI(1);
-        head.appendToTail(2);
-        head.appendToTail(1);
-        boolean resultado = palindromeCheck(head);
-        System.out.println(resultado);
-    }
 }

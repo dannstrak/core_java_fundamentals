@@ -1,17 +1,5 @@
-class node{
-    int data;
-    int identificador;
-    node next;
-    public node(int data, int identificador){
-        this.data = data;
-        this.identificador = identificador;
-    }
-    public void displayLink(){
-        System.out.print("{" + identificador + ", " + data + "} ");
-    }
-}
 class LinkedL {
-    private node First;
+    private Node First;
     public LinkedL(){
         First = null;
     }
@@ -19,7 +7,7 @@ class LinkedL {
         return First == null;
     }
     public void insertFirst(int data, int identificador){
-        node newNode = new node(data, identificador);
+        Node newNode = new Node(data, identificador);
         if (isEmpty()){
             First = newNode;
         }else{
@@ -34,7 +22,7 @@ class LinkedL {
     }
 
     public void displayList(){
-        node current = First;
+        Node current = First;
         while (current != null){
             current.displayLink();
             current = current.next;

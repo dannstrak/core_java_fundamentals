@@ -50,6 +50,7 @@ class StackImp {
 }
 public class StackImplementByLinkedList {
     public static void main(String[] args) {
+        System.out.println("Resultado Final ");
         StackImp Stack = new StackImp();
         Stack.push(1, 10);
         Stack.push(2, 10);

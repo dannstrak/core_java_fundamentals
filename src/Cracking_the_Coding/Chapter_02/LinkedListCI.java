@@ -1,3 +1,5 @@
+package Cracking_the_Coding.Chapter_02;
+
 public class LinkedListCI {
     int data;
     LinkedListCI next;

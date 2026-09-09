@@ -20,5 +20,18 @@ public class PalindromeLinked {
             previous = actual;
             actual = siguiente;
         }
+
+        // 3.
+        LinkedListCI izquierda = head;
+        LinkedListCI derecha = previous;
+
+        while (derecha != null){
+            if (derecha.data != izquierda.data){
+                return false;
+            }
+            derecha = derecha.next;
+            izquierda = izquierda.next;
+        }
+        return true;
     }
 }

@@ -11,7 +11,7 @@ class Queue{
     public void InsertLast (int identificador, int data){
         Link newLink = new Link(identificador, data);
         if(isEmpty()){
-            First = null;
+            First = newLink;
         }else{
             Last.next = newLink;
         }
